@@ -41,6 +41,95 @@ def named_format(first, last):
 student = named_format('Jude', 'Alexas')
 print(student)
 
+# Making an Argument optional
+def cloth(condition, shop, colour=''):
+    if colour:
+        cloth_status = condition + '  ' + colour + ' ' +  shop
+    else:
+        cloth_status = condition + ' ' +  shop
+    return cloth_status.title()
+
+choice = cloth('bad', 'A', 'Red')
+print(choice)
+
+choice = cloth('good', 'B')
+print(choice)
+
+# Returning a dictionary
+def personas(first_name, last_name, age='', location=''):
+    person = {'first':first_name, 'last':last_name}
+    if age:
+        person['age'] = age
+    return person
+
+identity = personas('Erick', 'James', age=18)
+print(identity)
+
+# Using a function with a while loop
+def survey(second_name, sir_name):
+    full_name = second_name + ' ' + sir_name
+    return full_name.title()
+
+while True:
+    print('\nEnter your names:')
+    sec_name = input('Second name:')
+    si_name = input('Enter Sir name:')
+    if sec_name == 'Q':
+        break
+    elif si_name == 'Q':
+        break
+
+results = survey(sec_name, si_name)
+print('\nHello ' + results)
+
+# Passing a list to a function
+def greetings(names):
+    for name in names:
+        message = 'Hello, ' + name.title()
+        print(message)
+
+users = ['lavender', 'joshua', 'kalx', 'irene']
+greetings(users)
+
+# Modifying a list in a function
+def dresses(trials, finished):
+    while trials:
+        new_trial = trials.pop()
+        print('\nMaking in process: ' + new_trial)
+        finished.append(new_trial)
+
+def show_dresses(finished):
+    print('\nThe following dresses are complete:')
+    for finish in finished:
+        print(finish)
+
+trials = ['blue dress', 'white dress', 'pink dress']
+finished = []
+
+dresses(trials, finished) # To use a copy of the original list to prevent emptying the oiginal, the function can be written as: dresses(trials[:], finished)
+show_dresses(finished)
+
+# Passing an arbitrary number of arguments. The * in parameter name tells python to make an empty tuple called fruits
+def food(number, *fruits):
+    print('\nMake a list of fruitts:')
+    for fruit in fruits:
+        print(str(number) + ' Fresh ' + fruit)
+
+food(14, 'banana', 'orange', 'pinapple', 'lemon')
+
+# Using arbitrary keyword arguments
+def profiling(name, place, **other_info):
+    profile = {}
+    profile['first_name'] = name
+    profile['living_place'] = place
+    for key, value in other_info.items():
+        profile[key] = value
+    return profile
+
+user_profile = profiling('petros', 'germany', language='english', field='software')
+print(user_profile)
+
+
 
 
 
