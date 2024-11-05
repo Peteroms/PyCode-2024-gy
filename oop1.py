@@ -25,6 +25,45 @@ my_car.mileage = 200
 my_car.read_mileage()
 
 # Modifying through a method e.g
+class Cement():
+    def __init__(self, colour, new_price):
+        self.colour = colour
+        self.new_price = new_price
+
+    def read_prices(self):
+        prices = self.colour + ' ' + str(self.new_price)
+        return prices
+
+    def update_price(self, price):
+        '''set the new_price to the given value'''
+        self.new_price = price
+
+cement_values = Cement('Blue', 1000)
+cement_values.update_price(2000)
+print(cement_values.read_prices())
+
+# Increamenting an attribute's value through a method
+class Vehicle():
+    def __init__(self, brand, origin):
+        self.brand = brand
+        self.origin = origin
+        self.dates = 2002
+
+    def update_vehicle(self, times):
+        self.dates += times
+
+    def description(self):
+        desc = self.brand + ' ' + self.origin + ' ' + str(self.dates)
+        return desc
+
+my_vehicle = Vehicle('Limo', 'Whales')
+print(my_vehicle.description())
+
+my_vehicle.update_vehicle(30)
+print(my_vehicle.description())
+
+
+
 
 
 
